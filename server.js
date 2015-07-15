@@ -1,8 +1,6 @@
 var http = require('http');
-var os = require(“os”);
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  var hostname = os.hostname();
-  res.end('Hello on : ' + hostname);
+  res.end('Hello on : ' + req.headers.host);
 }).listen(process.env.PORT);
